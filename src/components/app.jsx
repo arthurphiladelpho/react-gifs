@@ -13,6 +13,18 @@ class App extends Component {
       selectedGifId: "lBoSfr97eDG7u"
     }
     this.search("homer thinking");
+    this.handler = this.handler.bind(this);
+  }
+
+  handler(id) {
+    console.log(this.state.selectedGifId);
+    console.log('-----')
+    console.log(id);
+    this.setState({
+      selectedGifId: id
+    });
+    console.log('-----')
+    console.log(this.state.selectedGifId);
   }
 
   search = (query) => {
@@ -33,12 +45,12 @@ class App extends Component {
         <div className="left-scene">
           < SearchBar searchMethod={this.search}/>
           <div className="selected-gif">
-            <Gif id={this.state.selectedGifId}/>
+            <Gif id={this.state.selectedGifId} handler = {this.handler}/>
           </div>
         </div>
 
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} handler = {this.handler}/>
         </div>
 
       </div>
