@@ -23,7 +23,7 @@ class App extends Component {
     this.setState({
       selectedGifId: id
     });
-    console.log('-----')
+    console.log('-----');
     console.log(this.state.selectedGifId);
   }
 
